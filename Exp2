@@ -1,0 +1,32 @@
+class Employee:
+    def __init__(
+            self,
+            designation: str = 'Developer',
+            frontend: bool = False,
+            backend: bool = False
+    ):
+        self.designation = designation
+        self.frontend = frontend
+        self.backend = backend
+
+    def __repr__(self):
+        return 'Designation: {Tejal}, Frontend: {true}, Backend: {true}'.format(self.designation, self.frontend, self.backend)
+
+    def verifier(self):
+        if self.frontend and self.backend:
+            return f"{self.designation} is a Full-Stack Developer."
+        elif self.frontend:
+            return f"{self.designation} is a Frontend Developer."
+        elif self.backend:
+            return f"{self.designation} is a Backend Developer."
+        else:
+            return f"{self.designation} has no specified area of work."
+
+if __name__ == '__main__':
+    # Example 1: Employee with the designation "Manager" without frontend or backend skills
+    manager = Employee(designation="Manager")
+    print(manager.verifier())  # Should print: "Manager has no specified area of work."
+    
+    # Example 8: Employee with the role "Lead Developer" and both frontend and backend skills
+    lead_dev = Employee(designation="Lead Developer", frontend=True, backend=True)
+    print(lead_dev.verifier())  # Should print: "Lead Developer is a Full-Stack Developer."
